@@ -9,7 +9,7 @@ namespace DashboardHost.AppComposition
         public static IServiceCollection AddMessagesRepository(this IServiceCollection services)
         {
             services.AddDbContext<MessageContext>(opt =>
-                opt.UseInMemoryDatabase("DashboardMessages"));
+                opt.UseInMemoryDatabase("DashboardMessages"), ServiceLifetime.Singleton);
 
             return services;
         }
