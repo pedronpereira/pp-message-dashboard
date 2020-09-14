@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DashboardService.Model\MessageDashboard.Model.csproj" />
+    <ProjectReference Include="..\DashboardService.Repositories\MessageDashboard.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
