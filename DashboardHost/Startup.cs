@@ -22,7 +22,9 @@ namespace DashboardHost
         {
             services.AddMessagesRepository();
             services.AddSingleton<IDashboardService, DashboardService>();
-            services.AddControllers();
+            services.AddMvc();
+
+            services.AddOptions();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,13 +35,9 @@ namespace DashboardHost
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseHttpsRedirection()
+               .UseRouting()
+               .UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });

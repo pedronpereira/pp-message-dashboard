@@ -19,6 +19,7 @@ namespace DashboardHost.Controllers
 
         // GET: api/Messages
         [HttpGet]
+        [Route("", Name = "GetMessages")]
         public async Task<ActionResult<IEnumerable<Message>>> GetMessages()
         {
             return await _dashboardService.GetMessages();
@@ -28,11 +29,12 @@ namespace DashboardHost.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Route("", Name = "GetMessage")]
         public async Task<ActionResult<Message>> PostMessage(Message message)
         {
             var createdMessage = await _dashboardService.CreateMessage(message);
             
-            return CreatedAtAction("GetMessage", new { id = createdMessage.Id }, createdMessage);
+            return CreatedAtAction("GetMessages", new { id = createdMessage.Id }, createdMessage);
         }
     }
 }
